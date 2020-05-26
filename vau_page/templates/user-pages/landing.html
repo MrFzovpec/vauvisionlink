@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="/static/styles/css/bulma.min.css">
     <link rel="stylesheet" href="/static/styles/css/card.css">
     <link rel="stylesheet" href="/static/styles/css/media.css">
-    <title>vaulink</title>
+    <title>{{ card.author }} – {{ card.release }}</title>
     <style>
         body {
             background: url("/{{ cover.cover }}");
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            backdrop-filter: blur(2px);
             min-height: 100vh;
             min-width: 100vw;
             overflow: hidden;

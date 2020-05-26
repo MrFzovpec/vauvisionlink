@@ -120,52 +120,52 @@
                                 </div>
                                 <div v-else class="control">
                                     <div class="control">
-                                        <input type="hidden" :value="social.position" :name="social.name + 'Position'"
-                                               style="">
-                                        <label for="" class="label">Название ресурса</label>
-                                        <input required class="input" v-model="social.secondname"
-                                               :name="social.name + 'SecondName'" type="text">
-                                    </div>
-                                    <div class="control">
+                                        <div class="control">
+                                            <input type="hidden" :value="social.position"
+                                                   :name="social.name + 'Position'"
+                                                   style="">
+                                            <label for="" class="label">Название ресурса</label>
+                                            <input required class="input" v-model="social.secondname"
+                                                   :name="social.name + 'SecondName'" type="text">
+                                        </div>
                                         <label for="" class="label">Ссылка на <span
                                                 style="text-transform: capitalize">{{ social.secondname }}</span></label>
-                                        <div class="columns"
-                                             style="align-items: center; margin-top: 0; margin-bottom: 0; height: 40px;">
-                                            <div class="column is-four-fifths">
+                                        <div class="columns is-mobile"
+                                             style="align-items: center; margin-top: 0; margin-bottom: 0;">
+                                            <div class="column is-four-fifths-desktop is-four-fifths-mobile">
 
                                                 <input required :name="social.name" required v-model="social.link"
                                                        type="url"
                                                        :placeholder="'https://' + [[ social.placeholder ]] + '/***'"
-                                                       class="input"></div>
+                                                       class="input">
+                                            </div>
 
-                                            <div class="column"
-                                                 style="display: flex; align-items: center;flex-direction: column;">
+                                            <div class="column is-one-fifth-mobile">
+                                                <div style="display: flex; align-items: center;flex-direction: column;">
+                                                    <img width="15px"
+                                                         style="margin: 10px; cursor: pointer"
+                                                         @click="upPoint(social)"
+                                                         src="/static/media/icons/arrow-up.png"
+                                                         alt="">
 
-                                                <img width="15px"
-                                                     style="margin: 10px; cursor: pointer"
-                                                     @click="upPoint(social)"
-                                                     src="/static/media/icons/arrow-up.png"
-                                                     alt="">
 
-
-                                                <img width="15px"
-                                                     style="margin: 10px; cursor: pointer"
-                                                     @click="downPoint(social)"
-                                                     height="7px"
-                                                     src="/static/media/icons/arrow-down.png"
-                                                     alt="">
+                                                    <img width="15px"
+                                                         style="margin: 10px; cursor: pointer"
+                                                         @click="downPoint(social)"
+                                                         height="7px"
+                                                         src="/static/media/icons/arrow-down.png"
+                                                         alt="">
+                                                </div>
 
 
                                             </div>
                                         </div>
 
-
-                                    </div>
-                                    <div class="rmSocial">
-                                        <a @click="rmPoint(social)">Удалить</a>
+                                        <div class="rmSocial">
+                                            <a @click="rmPoint(social)">Удалить</a>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
