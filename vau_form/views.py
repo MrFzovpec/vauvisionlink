@@ -18,7 +18,7 @@ def create_social_or_404(request, name, card):
             'AppleMusic': '/static/media/icons/applemusic.png',
         }
         social = Social()
-        if 'Ссылка артиста' in name:
+        if 'Собственная ссылка' in name:
             social.name = request.POST[f'{name}SecondName']
             social.logo = '/static/media/icons/vauvision-circle.png'
         else:
@@ -29,6 +29,7 @@ def create_social_or_404(request, name, card):
         social.save()
         return
     except KeyError:
+
         return
 
 
@@ -47,6 +48,7 @@ def create_network_or_404(request, name, card):
         social.save()
         return
     except KeyError:
+
         return
 
 
