@@ -87,3 +87,6 @@
 #cardLogo, #cardLogo a {
     margin-top: 4%;
 }
+.column.is-three-fifth-desktop.is-two-fifth-mobile{
+    padding-left: 0;
+}
