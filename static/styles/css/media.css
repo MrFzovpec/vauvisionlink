@@ -44,4 +44,7 @@
     .card img.music_logo {
         width: 27px;
     }
+    .navbar-item{
+        width: 30%;
+    }
 }
