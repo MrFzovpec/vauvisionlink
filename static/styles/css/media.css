@@ -13,9 +13,6 @@
         font-size: 1.2rem;
     }
 
-    .media-container .columns .column.open_link {
-        display: none;
-    }
 
     .media-container .columns .column {
         margin-top: 2%;
