@@ -25,6 +25,12 @@
 }
 
 @media only screen and (max-width: 450px) {
+    body{
+        font-size: 1em;
+    }
+    h1.subtitle{
+        font-size: 1.7rem;
+    }
     .column.is-three-fifth-desktop.is-two-fifth-mobile {
         font-size: 0.8rem;
     }
