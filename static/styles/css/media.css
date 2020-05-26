@@ -26,10 +26,16 @@
 
 @media only screen and (max-width: 450px) {
     body{
-        font-size: 1em;
+        font-size: 0.8em;
     }
     h1.subtitle{
-        font-size: 1.7rem;
+        font-size: 1.3rem;
+    }
+    .subtitle.is-4{
+        font-size: 1.2rem;
+    }
+    label.label{
+        font-size: 1rem;
     }
     .column.is-three-fifth-desktop.is-two-fifth-mobile {
         font-size: 0.8rem;
