@@ -29,7 +29,6 @@ def create_social_or_404(request, name, card):
         social.save()
         return
     except KeyError:
-
         return
 
 
