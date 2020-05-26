@@ -9,6 +9,7 @@
 }
 
 body {
+    background: url("/static/media/images/background_type_7.jpeg");
     background-size: cover;
     font-family: main;
     padding-bottom: 10%;
@@ -23,7 +24,7 @@ header nav.navbar {
 
 section.section.container {
     margin-top: 10%;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     padding: 5%;
 }
