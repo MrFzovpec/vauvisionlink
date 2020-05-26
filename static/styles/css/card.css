@@ -64,11 +64,13 @@
 .column.is-three-fifth-desktop.is-half-mobile{
     font-size: 1.4rem;
 }
-.link_logo, .open_link {
+.link_logo{
     justify-content: center;
     text-transform: uppercase;
 }
-
+.open_link {
+    justify-content: flex-end;
+}
 .card .columns.is-mobile {
     border-bottom: 1px solid #434343;
     cursor: pointer;

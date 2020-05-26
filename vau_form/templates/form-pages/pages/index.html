@@ -187,7 +187,7 @@
 
                                 </div>
                             </div>
-                            <div style="margin-bottom: 5%" v-for="social in selected_networks">
+                            <div style="margin-bottom: 5%" v-for="social in selected_nets">
                                 <div class="control">
                                     <div class="control">
                                         <label for="" class="label">Ссылка на <span
@@ -203,6 +203,25 @@
                                                         type="url"
                                                         :placeholder="'https://' + [[ social.placeholder ]] + '/***'"
                                                         class="input">
+                                            </div>
+                                            <div class="column is-one-fifth-mobile">
+                                                <div style="display: flex; align-items: center;flex-direction: column;">
+                                                    <img width="15px"
+                                                         style="margin: 10px; cursor: pointer"
+                                                         @click="upNet(social)"
+                                                         src="/static/media/icons/arrow-up.png"
+                                                         alt="">
+
+
+                                                    <img width="15px"
+                                                         style="margin: 10px; cursor: pointer"
+                                                         @click="downNet(social)"
+                                                         height="7px"
+                                                         src="/static/media/icons/arrow-down.png"
+                                                         alt="">
+                                                </div>
+
+
                                             </div>
 
 
@@ -272,7 +291,7 @@
 
 
                                     </a>
-                                    <a v-for="network in selected_networks"
+                                    <a v-for="network in selected_nets"
                                        v-if="network.link.includes(network.placeholder)"
                                        :href="network.link" target="_blank" class="columns is-mobile">
 
@@ -297,7 +316,8 @@
                             </div>
                             <div id="cardLogo">
                                 <a target="_blank" href="https://vk.com/vauvisionlabel">
-                                    <img src="/static/media/images/vauvision_white.png" width="15%" style="height: 100%"  alt="">
+                                    <img src="/static/media/images/vauvision_white.png" width="15%" style="height: 100%"
+                                         alt="">
                                 </a>
                             </div>
 
@@ -414,18 +434,21 @@
                         link: '',
                         placeholder: 'vk.com',
                         logo: '/static/media/icons/vk.png',
+                        position: null
                     },
                     {
                         name: 'instagram',
                         link: '',
                         placeholder: 'instagram.com',
                         logo: '/static/media/icons/instagram.png',
+                        position: null
                     },
                     {
                         name: 'tik tok',
                         link: '',
                         placeholder: 'tiktok.com',
                         logo: '/static/media/icons/tiktok.png',
+                        position: null
                     },
 
                 ],
@@ -462,7 +485,7 @@
                 addNetwork: function () {
                     point = this.currentNetwork;
                     if (point) {
-                        point.position = this.selected_ones.length;
+                        point.position = this.selected_nets.length;
                         this.selected_networks.push(point)
                     }
                 },
@@ -477,6 +500,9 @@
                 rmNetwork: function (point) {
                     point.link = '';
                     this.selected_networks = this.selected_networks.filter(item => item !== point);
+                    for (i = 0; i < this.selected_networks.length; i++) {
+                        this.selected_networks[i].position = i;
+                    }
                 },
                 upPoint: function (social) {
                     if (social.position > 0) {
@@ -487,6 +513,19 @@
                 downPoint: function (social) {
                     if (social.position < this.selected_ones.length - 1) {
                         this.selected_ones[social.position + 1].position -= 1;
+                        social.position = social.position + 1;
+                    }
+
+                },
+                upNet: function (social) {
+                    if (social.position > 0) {
+                        this.selected_nets[social.position - 1].position += 1;
+                        social.position = social.position - 1;
+                    }
+                },
+                downNet: function (social) {
+                    if (social.position < this.selected_nets.length - 1) {
+                        this.selected_nets[social.position + 1].position -= 1;
                         social.position = social.position + 1;
                     }
 
@@ -504,6 +543,11 @@
                         return a.position - b.position;
                     })
                 },
+                selected_nets: function () {
+                    return this.selected_networks.filter(item => item != null).sort(function (a, b) {
+                        return a.position - b.position;
+                    })
+                }
             }
         })
     </script>
