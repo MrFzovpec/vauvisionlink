@@ -276,13 +276,13 @@
                                        :href="social.link" target="_blank" class="columns is-mobile">
 
 
-                                        <div class="column is-one-fifth-desktop is-half-mobile link_logo">
+                                        <div class="column is-one-fifth-desktop is-one-fifth-mobile link_logo">
 
                                             <img :src="social.logo" class="music_logo" alt="">
 
 
                                         </div>
-                                        <div class="column is-three-fifth-desktop is-half-mobile ">
+                                        <div class="column is-one-fifth-desktop is-one-fifth-mobile ">
                                             <span v-if="!social.name.includes('Собственная ссылка')">{{ social.name }}</span>
                                             <span v-else>{{ social.secondname }}</span>
                                         </div>
