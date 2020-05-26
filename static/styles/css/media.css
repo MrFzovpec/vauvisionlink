@@ -9,7 +9,7 @@
         width: 100%;
     }
 
-    .column.is-three-fifth-desktop.is-half-mobile {
+    .column.is-three-fifth-desktop.is-two-fifth-mobile {
         font-size: 1.2rem;
     }
 
@@ -18,10 +18,18 @@
         margin-top: 2%;
         margin-bottom: 2%;
     }
+
+    .card img.music_logo {
+        width: 35px;
+    }
 }
 
 @media only screen and (max-width: 450px) {
-    .column.is-three-fifth-desktop.is-half-mobile {
-        font-size: 0.8rem;
+    .column.is-three-fifth-desktop.is-two-fifth-mobile {
+        font-size: 0.7rem;
+    }
+
+    .card img.music_logo {
+        width: 27px;
     }
 }
