@@ -42,7 +42,7 @@ def create_network_or_404(request, name, card):
         social = ArtistNetwork()
         social.name = name
         social.logo = icons[name]
-        social.link = request.POST[name]
+        social.link, social.position = request.POST[name], request.POST[f'{name}Position']
         social.card = card
         social.save()
         return

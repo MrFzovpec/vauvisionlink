@@ -189,7 +189,11 @@
                             </div>
                             <div style="margin-bottom: 5%" v-for="social in selected_nets">
                                 <div class="control">
+
                                     <div class="control">
+                                        <input type="hidden" :value="social.position"
+                                               :name="social.name + 'Position'"
+                                               style="">
                                         <label for="" class="label">Ссылка на <span
                                                 style="text-transform: capitalize">{{ social.name }}</span></label>
                                         <div class="columns"

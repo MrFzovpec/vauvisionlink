@@ -24,4 +24,5 @@ class ArtistNetwork(models.Model):
     name = models.CharField(max_length=20)
     link = models.URLField()
     logo = models.CharField(max_length=100)
+    position = models.IntegerField()
     card = models.ForeignKey(UserCard, on_delete=models.CASCADE)
