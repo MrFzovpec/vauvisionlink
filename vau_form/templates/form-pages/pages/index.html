@@ -194,10 +194,20 @@
                                         <input type="hidden" :value="social.position"
                                                :name="social.name + 'Position'"
                                                style="">
-                                        <label for="" class="label">Ссылка на <span
-                                                style="text-transform: capitalize">{{ social.name }}</span></label>
+                                        <div v-if="social.name.includes('Собственная')" class="contol" style="margin-bottom: 10px">
+                                            <label for="" class="label">Введите имя ресурса</label>
+                                            <input v-model="social.secondname" :name="social.name + 'SecondName'" class="input" type="text">
+                                        </div>
+                                        <label v-if="social.name.includes('Собственная')" for="" class="label">Ссылка на
+                                            <span
+                                                    style="text-transform: capitalize">{{ social.secondname }}</span></label>
+                                        <label v-else="social.name.includes('Собственная')" for="" class="label">Ссылка на
+                                            <span
+                                                    style="text-transform: capitalize">{{ social.name }}</span></label>
                                         <div class="columns is-mobile"
                                              style="align-items: center; margin-top: 0; margin-bottom: 0;">
+
+
                                             <div class="column is-four-fifths">
 
                                                 <input
@@ -242,7 +252,9 @@
                     </div>
 
                     <div v-if="selected_ones.length == 0" class="control">
-                        <button style="background: #bd4c00; color: white;" disabled type="submit" class="button">Создать</button>
+                        <button style="background: #bd4c00; color: white;" disabled type="submit" class="button">
+                            Создать
+                        </button>
                     </div>
                     <div v-else class="control">
                         <button style="background: #bd4c00; color: white" type="submit" class="button">Создать</button>
@@ -304,8 +316,10 @@
 
 
                                         </div>
+
                                         <div class="column is-mobile is-three-fifth-desktop is-two-fifth-mobile">
-                                            <span style="text-transform: capitalize">{{ network.name }}</span>
+                                            <span v-if="network.name.includes('Собственная')" style="text-transform: capitalize">{{ network.secondname }}</span>
+                                            <span v-else style="text-transform: capitalize">{{ network.name}}</span>
                                         </div>
 
                                         <div class="column is-one-fifth-desktop is-two-fifth-mobile open_link">
@@ -451,6 +465,30 @@
                         link: '',
                         placeholder: 'tiktok.com',
                         logo: '/static/media/icons/tiktok.png',
+                        position: null
+                    },
+                    {
+                        name: 'Собственная соц. сеть 1',
+                        secondname: '',
+                        link: '',
+                        placeholder: '',
+                        logo: '/static/media/icons/vauvision-circle.png',
+                        position: null
+                    },
+                    {
+                        name: 'Собственная соц. сеть 2',
+                        secondname: '',
+                        link: '',
+                        placeholder: '',
+                        logo: '/static/media/icons/vauvision-circle.png',
+                        position: null
+                    },
+                    {
+                        name: 'Собственная соц. сеть 3',
+                        secondname: '',
+                        link: '',
+                        placeholder: '',
+                        logo: '/static/media/icons/vauvision-circle.png',
                         position: null
                     },
 

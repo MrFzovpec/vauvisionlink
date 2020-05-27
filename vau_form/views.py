@@ -18,7 +18,7 @@ def create_social_or_404(request, name, card):
             'AppleMusic': '/static/media/icons/applemusic.png',
         }
         social = Social()
-        if 'Собственная ссылка' in name:
+        if 'Собственная' in name:
             social.name = request.POST[f'{name}SecondName']
             social.logo = '/static/media/icons/vauvision-circle.png'
         else:
@@ -40,14 +40,17 @@ def create_network_or_404(request, name, card):
             'tik tok': '/static/media/icons/tiktok.png'
         }
         social = ArtistNetwork()
-        social.name = name
-        social.logo = icons[name]
+        if 'Собственная ' in name:
+            social.name = request.POST[f'{name}SecondName']
+            social.logo = '/static/media/icons/vauvision-circle.png'
+        else:
+            social.name = name
+            social.logo = icons[name]
         social.link, social.position = request.POST[name], request.POST[f'{name}Position']
         social.card = card
         social.save()
         return
     except KeyError:
-
         return
 
 
@@ -87,6 +90,9 @@ def index(request):
         create_network_or_404(request, 'VKontakte', card)
         create_network_or_404(request, 'instagram', card)
         create_network_or_404(request, 'tik tok', card)
+        create_network_or_404(request, 'Собственная соц. сеть 1', card)
+        create_network_or_404(request, 'Собственная соц. сеть 2', card)
+        create_network_or_404(request, 'Собственная соц. сеть 3', card)
 
         return redirect(f'/{token_url}')
 
