@@ -37,7 +37,8 @@ def create_network_or_404(request, name, card):
         icons = {
             'VKontakte': '/static/media/icons/vk.png',
             'instagram': '/static/media/icons/instagram.png',
-            'tik tok': '/static/media/icons/tiktok.png'
+            'tik tok': '/static/media/icons/tiktok.png',
+            'youtube': '/static/media/icons/video_youtube.png'
         }
         social = ArtistNetwork()
         if 'Собственная ' in name:
@@ -90,6 +91,7 @@ def index(request):
         create_network_or_404(request, 'VKontakte', card)
         create_network_or_404(request, 'instagram', card)
         create_network_or_404(request, 'tik tok', card)
+        create_network_or_404(request, 'youtube', card)
         create_network_or_404(request, 'Собственная соц. сеть 1', card)
         create_network_or_404(request, 'Собственная соц. сеть 2', card)
         create_network_or_404(request, 'Собственная соц. сеть 3', card)
